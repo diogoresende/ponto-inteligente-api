@@ -8,6 +8,7 @@ import java.util.Optional;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
@@ -18,10 +19,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
+import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import com.resende.pontointeligente.api.enums.PerfilEnum;
 
+@Entity
+@Table(name = "funcionario")
 public class Funcionario implements Serializable{
 	
 	private static final long serialVersionUID = -5754246207015712518L;
