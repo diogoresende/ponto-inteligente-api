@@ -1,5 +1,7 @@
 package com.resende.pontointeligente.api.entities;
 
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;

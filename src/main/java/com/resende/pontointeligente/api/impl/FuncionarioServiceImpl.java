@@ -19,28 +19,23 @@ public class FuncionarioServiceImpl implements FuncionarioService {
     private FuncionarioRepository funcionarioRepository;
 
     @Override
-    public Optional<Funcionario> buscarPorCpf(String cpf){
-        log.info("Buscando um funcionário para o CPF {}", cpf);
-        return Optional.ofNullable(funcionarioRepository.findByCpf(cpf));
-    }
-
-    @Override
-    public Optional<Funcionario> buscarPorEmail(String email){
-        log.info("Buscando um funcionário para o email {}", email);
-        return Optional.ofNullable(funcionarioRepository.findByEmail(email));
-    }
-
-    @Override
-    public Optional<Funcionario> buscarPorId(Long id){
-        log.info("Buscando um funcionário pelo ID {}", id);
-        return Optional.ofNullable(funcionarioRepository.findOne(id));
-    }
-
-    @Override
     public Funcionario persistir(Funcionario funcionario){
         log.info("Persistindo funcionário: {}", funcionario);
         return this.funcionarioRepository.save(funcionario);
     }
 
+    public Optional<Funcionario> buscarPorCpf(String cpf){
+        log.info("Buscando um funcionário para o CPF {}", cpf);
+        return Optional.ofNullable(funcionarioRepository.findByCpf(cpf));
+    }
 
+    public Optional<Funcionario> buscarPorEmail(String email){
+        log.info("Buscando um funcionário para o email {}", email);
+        return Optional.ofNullable(funcionarioRepository.findByEmail(email));
+    }
+
+    public Optional<Funcionario> buscarPorId(Long id){
+        log.info("Buscando um funcionário pelo ID {}", id);
+        return Optional.ofNullable(funcionarioRepository.findOne(id));
+    }
 }

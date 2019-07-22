@@ -10,7 +10,7 @@ public interface EmpresaService {
      * Retorna uma empresa dado um CNPJ
      *
      * @param cnpj
-     * @return Optional <Empresa></Empresa>
+     * @return Optional<Empresa>
      */
 
     Optional<Empresa> buscarPorCnpj(String cnpj);

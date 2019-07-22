@@ -36,7 +36,6 @@ public class Lancamento implements Serializable{
 	private Funcionario funcionario;
 	
 	public Lancamento(){
-		
 	}
 	
 	@Id
@@ -114,7 +113,6 @@ public class Lancamento implements Serializable{
 		this.funcionario = funcionario;
 	}
 	
-	
 	@PreUpdate
 	public void preUpdate() {
 		dataAtualizacao = new Date();
@@ -133,7 +131,5 @@ public class Lancamento implements Serializable{
 				+ ", dataCriacao=" + dataCriacao + ", dataAtualizacao=" + dataAtualizacao + ", tipo=" + tipo
 				+ ", funcionario=" + funcionario + "]";
 	}
-	
-	
 
 }
