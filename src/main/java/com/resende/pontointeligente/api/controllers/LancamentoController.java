@@ -15,6 +15,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
@@ -56,7 +57,7 @@ public class LancamentoController {
             @PathVariable("funcionarioId") Long funcionarioId,
             @RequestParam(value = "pag", defaultValue = "0") int pag,
             @RequestParam(value = "ord", defaultValue = "id") String ord,
-            @RequestParam(value = "dir", defaultValue = "desc") String dir) {
+            @RequestParam(value = "dir", defaultValue = "DESC") String dir) {
         log.info("Buscando lançamentos por ID do funcionário: {}, página: {}", funcionarioId, pag);
         Response<Page<LancamentoDto>> response = new Response<Page<LancamentoDto>>();
 
@@ -152,6 +153,7 @@ public class LancamentoController {
      * @return ResponseEntity<Response < LancamentoDto>>
      */
     @DeleteMapping(value = "/{id}")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     public ResponseEntity<Response<String>> remover(@PathVariable("id") Long id) {
         log.info("Removendo lançamento: {}", id);
         Response<String> response = new Response<String>();

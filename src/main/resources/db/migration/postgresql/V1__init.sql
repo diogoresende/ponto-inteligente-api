@@ -1,5 +1,5 @@
 CREATE TABLE empresa (
-    id serial not null,
+    id bigserial not null,
     cnpj character varying(255) not null,
     data_atualizacao timestamp  not null,
     data_criacao timestamp  not null,
@@ -8,7 +8,7 @@ CREATE TABLE empresa (
 );
 
 CREATE TABLE funcionario (
-    id serial not null,
+    id bigserial not null,
     cpf character varying(255) not null,
     data_atualizacao timestamp  not null,
     data_criacao timestamp  not null,
@@ -25,7 +25,7 @@ CREATE TABLE funcionario (
 );
 
 CREATE TABLE lancamento (
-    id serial not null,
+    id bigserial not null,
     data timestamp  not null,
     data_atualizacao timestamp  not null,
     data_criacao timestamp  not null,
