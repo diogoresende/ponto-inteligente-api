@@ -54,6 +54,14 @@ public class LancamentoServiceTest {
         assertNotNull(lancamento);
 
     }
+    
+    @Test
+    public void testPersistirLancamento() {
+       Lancamento lancamento = this.lancamentoService.persistir(new Lancamento());
+
+        assertNotNull(lancamento);
+
+    }
 
 
 }

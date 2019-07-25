@@ -29,10 +29,10 @@ public class CadastroPFController {
     private static final Logger log = LoggerFactory.getLogger(CadastroPFController.class);
 
     @Autowired
-    private FuncionarioService funcionarioService;
-
-    @Autowired
     private EmpresaService empresaService;
+    
+    @Autowired
+    private FuncionarioService funcionarioService;
 
     public CadastroPFController() {
     }
@@ -43,7 +43,7 @@ public class CadastroPFController {
      * @param cadastroPFDto
      * @param result
      * @return ResponseEtity<Response<CadastroPfDto>>
-     * @throws java.security.NoSuchAlgorithmException
+     * @throws NoSuchAlgorithmException
      */
     @PostMapping
     public ResponseEntity<Response<CadastroPFDto>> cadastrar(@Valid @RequestBody CadastroPFDto cadastroPFDto,

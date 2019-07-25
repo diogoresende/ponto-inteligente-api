@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.BindingResult;
@@ -61,7 +62,7 @@ public class LancamentoController {
         log.info("Buscando lançamentos por ID do funcionário: {}, página: {}", funcionarioId, pag);
         Response<Page<LancamentoDto>> response = new Response<Page<LancamentoDto>>();
 
-        PageRequest pageRequest = new PageRequest(pag, this.qtdPorPagina, Sort.Direction.valueOf(dir), ord);
+        PageRequest pageRequest = new PageRequest(pag, this.qtdPorPagina, Direction.valueOf(dir), ord);
         Page<Lancamento> lancamentos = this.lancamentoService.buscarPorFuncionarioId(funcionarioId, pageRequest);
         Page<LancamentoDto> lancamentosDto = lancamentos.map(lancamento -> this.converterLancamentoDto(lancamento));
 
@@ -150,7 +151,7 @@ public class LancamentoController {
      * Remove um lançamento por ID
      *
      * @param id
-     * @return ResponseEntity<Response < LancamentoDto>>
+     * @return ResponseEntity<Response<LancamentoDto>>
      */
     @DeleteMapping(value = "/{id}")
     @PreAuthorize("hasAnyRole('ADMIN')")

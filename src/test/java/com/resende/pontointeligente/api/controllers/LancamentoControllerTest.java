@@ -62,6 +62,7 @@ public class LancamentoControllerTest {
         BDDMockito.given(this.lancamentoService.persistir(Mockito.any(Lancamento.class))).willReturn(lancamento);
 
         mvc.perform(MockMvcRequestBuilders.post(URL_BASE)
+        		.content(this.obterJsonRequisicaoPost())
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
@@ -79,9 +80,10 @@ public class LancamentoControllerTest {
 
         mvc.perform(MockMvcRequestBuilders.post(URL_BASE)
                 .content(this.obterJsonRequisicaoPost())
+                .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.errors").value("Funcionário não encontrado. ID inexistente."))
+                .andExpect(jsonPath("$.errors").value("Funcionário não encontrado. Id inexistente."))
                 .andExpect(jsonPath("$.data").isEmpty());
     }
 

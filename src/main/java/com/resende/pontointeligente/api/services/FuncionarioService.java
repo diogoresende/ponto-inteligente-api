@@ -1,9 +1,8 @@
 package com.resende.pontointeligente.api.services;
 
-import com.resende.pontointeligente.api.entities.Empresa;
-import com.resende.pontointeligente.api.entities.Funcionario;
-
 import java.util.Optional;
+
+import com.resende.pontointeligente.api.entities.Funcionario;
 
 public interface FuncionarioService {
 

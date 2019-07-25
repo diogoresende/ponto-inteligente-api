@@ -1,4 +1,4 @@
-package com.resende.pontointeligente.api.impl;
+package com.resende.pontointeligente.api.services.impl;
 
 import com.resende.pontointeligente.api.entities.Funcionario;
 import com.resende.pontointeligente.api.repositories.FuncionarioRepository;
